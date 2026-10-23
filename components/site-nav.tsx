@@ -88,11 +88,11 @@ export function SiteNav({ initials }: { initials: string }) {
           >
             <Search className="size-4" />
             <span className="hidden sm:inline">Search</span>
-            <kbd className="hidden rounded bg-white/10 px-1.5 font-mono text-[10px] text-dim sm:inline">⌘K</kbd>
+            <kbd className="hidden rounded bg-white/10 px-1.5 font-mono text-xs text-dim sm:inline">⌘K</kbd>
           </button>
           <button
             type="button"
-            className="grid size-9 place-items-center rounded-full text-dim hover:text-ink md:hidden"
+            className="grid size-11 place-items-center rounded-full text-dim hover:text-ink md:hidden"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((o) => !o)}

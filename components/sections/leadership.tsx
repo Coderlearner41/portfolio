@@ -37,7 +37,7 @@ export function LeadershipSection({ pors }: { pors: Por[] }) {
             <GlassCard className="h-full p-5">
               <div className="flex items-baseline justify-between gap-3">
                 <h3 className="font-medium text-white">{por.position}</h3>
-                <span className="shrink-0 font-mono text-[11px] text-faint">{por.tenure}</span>
+                <span className="shrink-0 font-mono text-xs text-faint">{por.tenure}</span>
               </div>
               <p className="text-sm text-violet-soft">{por.sphere}</p>
               <p className="mt-2 text-sm text-dim">{por.description}</p>

@@ -1,6 +1,7 @@
 import { Analytics } from "@vercel/analytics/react"
 import type { Metadata, Viewport } from "next"
 import { JetBrains_Mono } from "next/font/google"
+import localFont from "next/font/local"
 import type React from "react"
 import { Toaster } from "sonner"
 import { Backdrop } from "@/components/backdrop"
@@ -13,6 +14,25 @@ import { buildIndex } from "@/lib/search"
 import "./globals.css"
 
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains", display: "swap" })
+
+// Self-hosted Fontshare families (ITF Free Font License) for zero layout shift.
+const display = localFont({
+  src: [
+    { path: "./fonts/ClashDisplay-Medium.woff2", weight: "500" },
+    { path: "./fonts/ClashDisplay-Semibold.woff2", weight: "600" },
+  ],
+  variable: "--font-clash",
+  display: "swap",
+})
+const sans = localFont({
+  src: [
+    { path: "./fonts/Satoshi-Regular.woff2", weight: "400" },
+    { path: "./fonts/Satoshi-Medium.woff2", weight: "500" },
+    { path: "./fonts/Satoshi-Bold.woff2", weight: "700" },
+  ],
+  variable: "--font-satoshi",
+  display: "swap",
+})
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://dhawal-khatri.vercel.app"
 
@@ -46,15 +66,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const { profile } = content
 
   return (
-    <html lang="en" className={mono.variable}>
-      <head>
-        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="" />
-        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="" />
-        <link
-          rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600&f[]=satoshi@400,500,700&display=swap"
-        />
-      </head>
+    <html lang="en" className={`${mono.variable} ${display.variable} ${sans.variable}`}>
       <body className="min-h-dvh overflow-x-hidden">
         <a
           href="#main"

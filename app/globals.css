@@ -7,15 +7,15 @@
   --bg: #08080c;
   --ink: #ececf1;
   --dim: #a0a0ad;
-  --faint: #6e6e7b;
+  --faint: #8a8a97; /* 5.3:1 on glass cards (WCAG AA) */
   --violet: #7c5cff;
   --violet-soft: #a18bff;
   --pink: #ff4d97;
   --cyan: #3ee6d0;
   --glass: rgb(255 255 255 / 0.035);
   --glass-strong: rgb(255 255 255 / 0.06);
-  --line: rgb(255 255 255 / 0.08);
-  --line-strong: rgb(255 255 255 / 0.16);
+  --line: rgb(255 255 255 / 0.12);
+  --line-strong: rgb(255 255 255 / 0.2);
 
   /* shadcn tokens used by dialog / command */
   --background: var(--bg);
@@ -58,8 +58,8 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  --font-display: "Clash Display", "Satoshi", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Satoshi", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-clash), var(--font-satoshi), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-satoshi), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", monospace;
 
   --animate-drift: drift 22s ease-in-out infinite alternate;
@@ -100,6 +100,16 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+  }
+  button:not(:disabled),
+  [role="button"],
+  [role="tab"],
+  summary {
+    cursor: pointer;
+  }
+  :focus-visible {
+    outline: 2px solid var(--violet-soft);
+    outline-offset: 3px;
   }
   ::selection {
     background: rgb(124 92 255 / 0.45);
@@ -186,7 +196,8 @@
   /* use as "btn btn-primary" / "btn btn-ghost" */
   .btn-primary {
     @apply text-white;
-    background: linear-gradient(135deg, var(--violet), #9b6bff 60%, var(--pink));
+    /* darker stops keep white label text at >= 5:1 across the whole gradient */
+    background: linear-gradient(135deg, #6a48f0, #8b3fd6 55%, #c72e6f);
     box-shadow: 0 10px 30px -10px rgb(124 92 255 / 0.8), inset 0 1px 0 rgb(255 255 255 / 0.25);
   }
   .btn-primary:hover {

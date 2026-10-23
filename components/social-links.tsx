@@ -21,7 +21,7 @@ export function SocialLinks({ profile, className }: { profile: Profile; classNam
             rel="noopener noreferrer"
             aria-label={label}
             title={label}
-            className="grid size-10 place-items-center rounded-full border border-line bg-white/[0.04] text-dim backdrop-blur-md transition-all hover:-translate-y-0.5 hover:border-violet/50 hover:text-white"
+            className="grid size-11 place-items-center rounded-full border border-line bg-white/[0.04] text-dim backdrop-blur-md transition-all hover:-translate-y-0.5 hover:border-violet/50 hover:text-white"
           >
             <Icon className="size-[18px]" />
           </a>
