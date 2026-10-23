@@ -1,0 +1,32 @@
+{
+ "amex-codestreet": {
+  "pages": 13,
+  "ratio": 1.7778,
+  "pdfMB": 0.72
+ },
+ "hdfc-fintrain": {
+  "pages": 9,
+  "ratio": 1.7778,
+  "pdfMB": 1.07
+ },
+ "opthinkers-iscea": {
+  "pages": 9,
+  "ratio": 1.7778,
+  "pdfMB": 1.04
+ },
+ "stockarehigh": {
+  "pages": 10,
+  "ratio": 1.7778,
+  "pdfMB": 0.89
+ },
+ "jpm-dcf": {
+  "pages": 3,
+  "ratio": 1.4134,
+  "pdfMB": 0.2
+ },
+ "fac-2026": {
+  "pages": 8,
+  "ratio": 1.7778,
+  "pdfMB": 0.67
+ }
+}

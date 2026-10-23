@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dhawal Khatri: Portfolio + Me-API
 
-## Getting Started
+Personal portfolio for Dhawal Khatri (IIT Madras), with its own "Me-API" for the content.
+The site and its JSON API live in one Next.js app deployed on Vercel.
 
-First, run the development server:
+- **Portfolio**: experience, projects (with case-study pages), live websites, decks with an in-page viewer,
+  research, leadership, achievements, skills and contact.
+- **Me-API**: REST endpoints over Postgres (Prisma) that serve the same content; try them at `/playground`.
+- **Interactions**: kynq-style yarn cursor trail, ⌘K command palette, cursor-spotlight glass cards,
+  magnetic buttons, tilt previews and scroll reveals. All motion respects `prefers-reduced-motion`.
+
+## Stack
+
+Next.js 15 (App Router) · React 19 · Tailwind CSS v4 · framer-motion · cmdk · Prisma 6 · Neon Postgres · Vercel
+
+## Content
+
+All content lives in `data/*.ts` and is typed by `lib/types.ts`.
+
+- With `DATABASE_URL` set, pages and the API read from Postgres.
+- Without it, or if the database is unreachable or empty, they fall back to the bundled data.
+
+`npm run db:seed` rebuilds the database from `data/`, so `data/` stays the single source of truth.
+On Vercel, each build reseeds only when `data/` has changed (tracked by a content hash), so edits made
+through the API survive redeploys that don't touch `data/`.
+
+Deck slides are pre-rendered images in `public/decks/<slug>/NN.webp`, with `cover.webp` and a downloadable PDF.
+Site previews are in `public/sites/<slug>.webp`.
+
+## API
+
+| Method | Path | Notes |
+| --- | --- | --- |
+| GET | `/api` | Endpoint index |
+| GET | `/api/profile` | Profile and skills |
+| GET | `/api/search?q=&type=` | Search across all content |
+| GET | `/api/{projects,experiences,pors,decks,sites,achievements,publications}` | `?skill=`, `?category=`, `?featured=` |
+| GET | `/api/:resource/:id` | Database mode only |
+| POST / PUT / DELETE | `/api/:resource[/:id]` | Requires `Authorization: Bearer $API_KEY` |
+
+## Local development
 
 ```bash
+npm install
+cp .env.example .env    # optional: DATABASE_URL, DATABASE_URL_UNPOOLED, API_KEY
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+With a database:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run db:migrate && npm run db:seed
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Variable | Purpose |
+| --- | --- |
+| `DATABASE_URL` | Pooled Postgres connection (Neon integration sets it) |
+| `DATABASE_URL_UNPOOLED` | Direct connection used by migrations |
+| `API_KEY` | Bearer token for write endpoints |
+| `NEXT_PUBLIC_SITE_URL` | Canonical URL for metadata (defaults to `https://dhawal-khatri.vercel.app`) |

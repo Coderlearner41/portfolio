@@ -1,10 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   images: {
-    unoptimized: true,
+    formats: ["image/avif", "image/webp"],
+  },
+  async redirects() {
+    return [
+      { source: "/projects", destination: "/#projects", permanent: true },
+      { source: "/experience", destination: "/#experience", permanent: true },
+      { source: "/por", destination: "/#leadership", permanent: true },
+      { source: "/search", destination: "/playground", permanent: true },
+    ]
   },
 }
 

@@ -1,95 +1,243 @@
-export const projectsData = [
+import type { Project } from "@/lib/types"
+
+const gh = (repo: string) => `https://github.com/Coderlearner41/${repo}`
+
+export const projectsData: Project[] = [
   {
-    title: "AI Video Generator",
-    description: "Automated commentary videos using avatars and voice synthesis.",
-    skills: ["React", "Node.js", "FFmpeg"],
-    links: {
-      github: "#",
-      demo: "#",
-    },
-    date: "123"
-  },
-  {
-    title: "Finance Tracker Dashboard",
-    description: "A full-stack financial analytics tool for tracking club expenses and investments.",
-    skills: ["Next.js", "Postgres", "Chart.js"],
-    links: {
-      github: "#",
-      demo: "#",
-    },
-    date: "123"
-  },
-  {
-    title: "Personal API Playground",
-    description: "Backend service exposing portfolio data with CRUD operations.",
-    skills: ["Express", "Postgres", "Prisma"],
-    links: {
-      github: "#",
-      demo: "#",
-    },
-    date: "123"
-  },
-  {
-    title: "Real-time Collaboration Editor",
+    slug: "building-analyser",
+    title: "Building Analyser",
+    tagline: "Describe a building in plain English and get a code-checked seismic analysis.",
     description:
-      "Multi-user document editor with live cursors, comments, and version history. Supports markdown, code blocks, and rich text formatting with WebSocket synchronization.",
-    skills: ["TypeScript", "WebSocket", "React", "Yjs", "MongoDB"],
-    links: {
-      github: "#",
-      demo: "#",
-    },
-    date: "123"
+      "My B.Tech project. A conversational web app where you type something like “a 10-storey M30 office, 3 bays of 6 m by 2 bays of 5 m, run a time history”. A tool-calling LLM agent collects any missing inputs and builds a parametric model in OpenSees. The app then sizes members to IS 456, runs gravity, modal and IS 1893 equivalent-static analysis plus an optional El Centro time history, checks every beam and column, and returns an interactive 3D model.",
+    category: "Research",
+    badge: "B.Tech Project",
+    date: "2026",
+    role: "Sole developer · Advisor: Prof. S. T. G. Raghukanth",
+    skills: ["Python", "OpenSeesPy", "Next.js", "LLM tool-calling", "Plotly", "Docker"],
+    highlights: [
+      "LLM agent chain (Llama 3.3 70B on Workers AI, with Gemini fallback) drives a structured questionnaire",
+      "Verified against hand calculations: zero equilibrium error, with portal-frame and Rayleigh period checks",
+      "10-storey example: SDOF cross-check ratio of 0.989 on peak response",
+      "Found and fixed two solver bugs: a beam-axis inertia error (3.8× too flexible) and doubled gravity load",
+    ],
+    links: { demo: "https://btp-0460.onrender.com" },
+    featured: true,
+    order: 1,
   },
   {
-    title: "Mobile Weather App",
-    description: "Native iOS app with real-time weather updates and 14-day forecasts.",
-    skills: ["Swift", "CoreLocation", "SwiftUI"],
-    links: {
-      github: "#",
-      demo: "#",
-    },
-    date: "123"
-  },
-  {
-    title: "E-commerce Platform",
+    slug: "bhasha-psha",
+    title: "BHASHA: On-device Seismic Hazard",
+    tagline: "Offline probabilistic seismic hazard analysis for any point in India, on a phone.",
     description:
-      "Full-stack marketplace with payment integration, inventory management, seller dashboard, and customer analytics. Handles 10k+ daily transactions with optimized database queries and caching strategies.",
-    skills: ["Next.js", "Stripe", "Redis", "PostgreSQL", "Docker"],
-    links: {
-      github: "#",
-      demo: "#",
-    },
-    date: "123"
+      "A mobile-native app that visualises Indian seismicity and runs probabilistic (PSHA) and deterministic hazard analysis fully offline. It computes hazard curves across 27 spectral periods with 20 ground-motion prediction equations and compares the uniform hazard spectrum against IS 1893. It is the subject of a paper I co-authored, now under review.",
+    category: "Research",
+    badge: "Paper under review · Elsevier",
+    date: "2026",
+    role: "Co-author · built the visualisation/export layer and the Dart–Java bridge",
+    skills: ["Flutter", "Dart", "Java", "MethodChannel", "SQLite"],
+    highlights: [
+      "Native Java hazard engine reached from Flutter over a MethodChannel",
+      "Earthquake catalogue from 2600 BCE to 2019, bundled as encrypted assets",
+      "Submitted to Advances in Engineering Software (Elsevier), June 2026",
+    ],
+    links: {},
+    featured: true,
+    order: 2,
   },
   {
-    title: "CLI Tool Suite",
-    description: "Command-line utilities for developers.",
-    skills: ["Go", "Bash"],
-    links: {
-      github: "#",
-      demo: "#",
-    },
-    date: "123"
-  },
-  {
-    title: "Machine Learning Pipeline",
+    slug: "amex-travel-concierge",
+    title: "Autonomous Travel-Disruption Concierge",
+    tagline: "Rebooks flight, hotel and cab together when a flight is cancelled, inside policy.",
     description:
-      "End-to-end ML pipeline for image classification with data preprocessing, model training, evaluation, and deployment. Achieves 94% accuracy on custom dataset with automated retraining on new data.",
-    skills: ["Python", "TensorFlow", "Scikit-learn", "Docker", "AWS"],
-    links: {
-      github: "#",
-      demo: "#",
-    },
-    date: "123"
+      "Our AMEX Codestreet 2026 finalist entry. An agentic concierge for disruptions in Indian domestic aviation. A LangGraph planner proposes a joint rebooking, an OPA/Rego policy gate (default-deny) approves it, and a Temporal saga executes it with compensating rollbacks if any leg fails. It ships as a web app and an Android app, backed by a 250,000-case Monte Carlo disruption simulator.",
+    category: "Competition",
+    badge: "Top 6 of 11,852 teams",
+    date: "2026",
+    role: "Team ZKD · with M. Zayaan and Krishna Satyam",
+    skills: ["LangGraph", "Temporal", "OPA / Rego", "Next.js", "Expo", "Python"],
+    highlights: [
+      "Saga orchestration with LIFO compensation across flight, hotel and ground legs",
+      "Policy-as-code guardrails so the agent can never act outside entitlements",
+      "Monte Carlo simulator over 250K disruption cases to size the problem",
+    ],
+    links: { github: "https://github.com/Krishna-529/amex-hackathon-2026", deck: "amex-codestreet" },
+    featured: true,
+    order: 3,
   },
   {
-    title: "Design System",
-    description: "Reusable component library.",
-    skills: ["React", "Storybook", "Tailwind"],
-    links: {
-      github: "#",
-      demo: "#",
-    },
-    date: "123"
+    slug: "incis-conference-app",
+    title: "InCIS 2027 Conference Platform",
+    tagline: "A reusable conference app: enter an event code and get that event's branding, schedule and tools.",
+    description:
+      "Built for IIT Madras' Department of Management Studies. Attendees join with a conference code and the app takes on that event's identity, schedule and content. Organisers run everything from a web console. It covers all 17 “good-to-have” features from the spec, including QR check-in, an SOS button and email OTP login.",
+    category: "Product",
+    badge: "Built for DoMS, IIT Madras",
+    date: "2026",
+    role: "Lead developer (42 of 46 commits)",
+    skills: ["React Native", "Expo", "TypeScript", "Node / Express", "PostgreSQL", "Docker"],
+    highlights: [
+      "Multi-tenant by design: one app binary serves any conference",
+      "Express + Postgres backend with 54 automated tests",
+      "Organiser web console, QR check-in and Brevo-powered email OTP",
+    ],
+    links: {},
+    featured: true,
+    order: 4,
+  },
+  {
+    slug: "inter-iit-ai-photo-editor",
+    title: "On-device AI Photo Editor",
+    tagline: "Tap-to-segment, relighting and voice edits that run entirely on the phone.",
+    description:
+      "Our Inter IIT Tech Meet 14.0 entry (Bronze). A Flutter photo editor where every model runs on-device: MobileSAM for tap-to-segment, Depth Anything V2 for depth-of-field and relighting, wavelet-based blur scoring to pick the best burst shot, and a voice-driven editing layer built on LLM tool-calling.",
+    category: "Competition",
+    badge: "Inter IIT Tech 14.0 · Bronze",
+    date: "2025",
+    role: "Team member · speech-to-intent tool-calling layer and Dart–Kotlin FLAG_SECURE channel",
+    skills: ["Flutter", "ONNX Runtime", "TFLite", "Kotlin", "LLM tool-calling"],
+    highlights: [
+      "MobileSAM (ONNX) and Depth Anything V2 (TFLite) running on-device",
+      "Provenance tag written into EXIF on every edit",
+      "Screenshot blocking via a Dart-to-Kotlin FLAG_SECURE platform channel",
+    ],
+    links: {},
+    featured: true,
+    order: 5,
+  },
+  {
+    slug: "landslide-fos",
+    title: "Landslide Risk Mapper",
+    tagline: "Tap anywhere in Uttarakhand to get a live slope Factor of Safety.",
+    description:
+      "Our Inter IIT Civil Conclave entry (Gold). A Flutter + Flask app that fuses SoilGrids soil properties, SRTM slope from Google Earth Engine and NASA POWER rainfall into an infinite-slope Factor-of-Safety model. It scores 14,780 zones in real time.",
+    category: "Competition",
+    badge: "Inter IIT Civil Conclave · Gold",
+    date: "2026",
+    role: "App development",
+    skills: ["Flutter", "Flask", "Google Earth Engine", "Geotechnics"],
+    highlights: [
+      "Three public geodata sources fused into one risk model",
+      "14,780 Uttarakhand zones scored on tap",
+    ],
+    links: {},
+    featured: true,
+    order: 6,
+  },
+  {
+    slug: "pokerbot",
+    title: "Sneak-Peek Hold'em Pokerbot",
+    tagline: "A Monte Carlo + opponent-profiling bot that decides within a 30 ms budget.",
+    description:
+      "My bot for IIT Pokerbots 2026 (sponsored by Jane Street). A five-stage pipeline: Monte Carlo equity estimation, opponent profiling, a dynamic aggression adapter, bid strategy and an expected-value decision. It finished in the top 13th percentile.",
+    category: "Competition",
+    badge: "Top 13th percentile",
+    date: "2026",
+    role: "Solo",
+    skills: ["Python", "Monte Carlo", "Game theory"],
+    highlights: [
+      "27 ms worst-case decision time against a 30 ms limit",
+      "Validated over 18 matches × 1,000 hands between bot variants",
+    ],
+    links: {},
+    featured: false,
+    order: 7,
+  },
+  {
+    slug: "dinknet",
+    title: "Dink-Net from Scratch",
+    tagline: "A reimplementation of the ICML 2023 graph clustering paper in PyTorch.",
+    description:
+      "A from-scratch PyTorch reimplementation of Dink-Net: a GCN encoder trained with dilation and shrink losses. I benchmarked it against K-Means, Spectral and GMM clustering. Done as the bonus project for DA5400 (Foundations of ML) under Dr. Nirav Bhatt.",
+    category: "AI / ML",
+    date: "2026",
+    skills: ["PyTorch", "GNNs", "Clustering"],
+    highlights: ["97.75% clustering accuracy on Wine", "63.88% on Digits"],
+    links: { github: gh("dinknet-implementation") },
+    featured: false,
+    order: 8,
+  },
+  {
+    slug: "voice-ai-pipeline",
+    title: "Real-time Voice Assistant",
+    tagline: "Mic → Whisper → streaming Gemini → speech, with audio starting before the reply ends.",
+    description:
+      "A low-latency voice loop over WebSockets: browser mic audio is transcribed locally with faster-whisper, streamed through Gemini, and spoken back with gTTS sentence by sentence. Per-stage latency is shown live.",
+    category: "AI / ML",
+    date: "2026",
+    skills: ["FastAPI", "faster-whisper", "Gemini", "WebSockets"],
+    highlights: ["Time-to-first-audio cut 26% (8.95 s → 6.63 s)", "Median 1.36 s saved per turn"],
+    links: { github: gh("Voice-ai-pipeline") },
+    featured: false,
+    order: 9,
+  },
+  {
+    slug: "mock-interview",
+    title: "AI Mock Interviewer",
+    tagline: "A spoken interviewer that reads your resume and grades you at the end.",
+    description:
+      "A resume-driven mock interview platform with phases, difficulty levels and role profiles (SDE, Quant, PM, Consulting). Speech is transcribed locally with faster-whisper biased toward your resume's vocabulary, and Gemini runs the interview with model-chain failover.",
+    category: "AI / ML",
+    date: "2026",
+    skills: ["FastAPI", "Gemini", "faster-whisper", "JavaScript"],
+    highlights: ["Resume-biased transcription got 7/7 names right vs 4/7 without", "Graded debrief report at the end"],
+    links: {},
+    featured: false,
+    order: 10,
+  },
+  {
+    slug: "credit-risk",
+    title: "Credit Risk Prediction",
+    tagline: "A leak-free default-prediction pipeline with a scoring API.",
+    description:
+      "Logistic regression, random forest and XGBoost on a Home-Credit-style dataset with an 8% default rate. SMOTE sits inside an imblearn pipeline to avoid leakage, the decision threshold is tuned, and a Flask app scores applicants.",
+    category: "AI / ML",
+    date: "2026",
+    skills: ["scikit-learn", "XGBoost", "imbalanced-learn", "Flask", "pytest"],
+    highlights: ["Test ROC-AUC 0.786", "32 automated tests"],
+    links: { github: gh("Credit-Risk-Prediction") },
+    featured: false,
+    order: 11,
+  },
+  {
+    slug: "flower-classifier",
+    title: "Transfer-Learning Image Classifier",
+    tagline: "MobileNetV2 with Grad-CAM explanations, served over Flask.",
+    description:
+      "Five-class flower classifier built on a MobileNetV2 backbone, with Grad-CAM heatmaps for every prediction and a latency comparison against VGG16.",
+    category: "AI / ML",
+    date: "2026",
+    skills: ["TensorFlow", "Keras", "Grad-CAM", "Flask"],
+    highlights: ["92.75% validation accuracy after fine-tuning", "18.2 ms per image median inference"],
+    links: { github: gh("Transfer-Learning-Image-Classifier") },
+    featured: false,
+    order: 12,
+  },
+  {
+    slug: "stock-screener",
+    title: "NSE Factor Screener & Backtester",
+    tagline: "Momentum and volatility screens with long–short backtests on Indian large caps.",
+    description:
+      "Factor screens and long–short backtests on large NSE stocks, inspired by recent work on Indian size and value factors. Reports Sharpe ratio, hit rate and PnL.",
+    category: "AI / ML",
+    date: "2026",
+    skills: ["Python", "pandas", "Backtesting"],
+    highlights: ["Sharpe, hit-rate and PnL reporting per strategy"],
+    links: { github: gh("Stock-Market-Screener-Backtester") },
+    featured: false,
+    order: 13,
+  },
+  {
+    slug: "gemini-proxy",
+    title: "Gemini Key-Rotation Proxy",
+    tagline: "A zero-dependency Node proxy that keeps LLM tooling alive under rate limits.",
+    description:
+      "Personal tooling: a Node.js proxy that rotates across a pool of API keys least-recently-used first, retries on 429/503, falls back to lighter models and shows live key health in an admin UI.",
+    category: "Product",
+    date: "2026",
+    skills: ["Node.js", "HTTP proxies"],
+    highlights: ["LRU key rotation with automatic model fallback"],
+    links: {},
+    featured: false,
+    order: 14,
   },
 ]
