@@ -1,0 +1,127 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL_UNPOOLED")
+}
+
+// Every record has a Search row with the same id, so /api/search covers all content types.
+model Search {
+  id          Int      @id @default(autoincrement())
+  type        String // project | experience | por | deck | site | achievement | publication
+  title       String
+  description String
+  category    String?
+  createdAt   DateTime @default(now())
+
+  project     Project?
+  experience  Experience?
+  por         Por?
+  deck        Deck?
+  site        Site?
+  achievement Achievement?
+  publication Publication?
+}
+
+model Project {
+  id          Int      @id
+  slug        String   @unique
+  title       String
+  tagline     String
+  description String
+  category    String
+  badge       String?
+  date        String
+  role        String?
+  skills      String[]
+  highlights  String[]
+  links       Json     @default("{}")
+  featured    Boolean  @default(false)
+  order       Int      @default(0)
+
+  search Search @relation(fields: [id], references: [id], onDelete: Cascade)
+}
+
+model Experience {
+  id          Int      @id
+  company     String
+  role        String
+  duration    String
+  kind        String
+  location    String?
+  description String
+  highlights  String[]
+  skills      String[]
+  order       Int      @default(0)
+
+  search Search @relation(fields: [id], references: [id], onDelete: Cascade)
+}
+
+model Por {
+  id          Int      @id
+  sphere      String
+  position    String
+  tenure      String
+  description String
+  highlights  String[]
+  skills      String[]
+  order       Int      @default(0)
+
+  search Search @relation(fields: [id], references: [id], onDelete: Cascade)
+}
+
+model Deck {
+  id      Int      @id
+  slug    String   @unique
+  title   String
+  event   String
+  summary String
+  role    String
+  date    String
+  pages   Int
+  ratio   Float
+  tags    String[]
+  order   Int      @default(0)
+
+  search Search @relation(fields: [id], references: [id], onDelete: Cascade)
+}
+
+model Site {
+  id          Int      @id
+  slug        String   @unique
+  name        String
+  url         String
+  repo        String?
+  description String
+  stack       String[]
+  host        String
+  order       Int      @default(0)
+
+  search Search @relation(fields: [id], references: [id], onDelete: Cascade)
+}
+
+model Achievement {
+  id     Int    @id
+  title  String
+  detail String
+  year   String
+  tier   String
+  order  Int    @default(0)
+
+  search Search @relation(fields: [id], references: [id], onDelete: Cascade)
+}
+
+model Publication {
+  id      Int    @id
+  title   String
+  authors String
+  venue   String
+  status  String
+  year    String
+  order   Int    @default(0)
+
+  search Search @relation(fields: [id], references: [id], onDelete: Cascade)
+}
