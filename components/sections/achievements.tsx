@@ -29,7 +29,7 @@ export function AchievementsSection({ achievements }: { achievements: Achievemen
                   </span>
                   <p className="mt-4 font-display text-lg font-medium leading-tight text-white">{a.title}</p>
                   <p className="mt-1 text-sm text-dim">{a.detail}</p>
-                  {a.year && <p className="mt-auto pt-3 font-mono text-[11px] text-faint">{a.year}</p>}
+                  {a.year && <p className="mt-auto pt-3 font-mono text-xs text-faint">{a.year}</p>}
                 </GlassCard>
               </Reveal>
             </li>

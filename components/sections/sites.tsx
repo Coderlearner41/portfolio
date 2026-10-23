@@ -61,7 +61,7 @@ function SiteCard({ site, wide }: { site: Site; wide: boolean }) {
           <span className="size-2.5 rounded-full bg-[#febc2e]/80" />
           <span className="size-2.5 rounded-full bg-[#28c840]/80" />
         </span>
-        <span className="flex min-w-0 flex-1 items-center gap-1.5 rounded-md bg-black/30 px-2 py-0.5 font-mono text-[11px] text-dim">
+        <span className="flex min-w-0 flex-1 items-center gap-1.5 rounded-md bg-black/30 px-2 py-0.5 font-mono text-xs text-dim">
           <span
             className={`size-1.5 shrink-0 rounded-full ${site.host === "Render" ? "bg-amber-400" : "bg-emerald-400"}`}
             title={site.host === "Render" ? "Live · free tier, may take ~30 s to wake" : "Live"}
@@ -104,7 +104,7 @@ function SiteCard({ site, wide }: { site: Site; wide: boolean }) {
           {site.stack.map((s) => (
             <li key={s} className="chip">{s}</li>
           ))}
-          <li className="chip ml-auto border-transparent bg-transparent px-0 font-mono text-[10px] uppercase tracking-widest text-faint">
+          <li className="chip ml-auto border-transparent bg-transparent px-0 font-mono text-xs uppercase tracking-widest text-faint">
             {site.host}
           </li>
         </ul>

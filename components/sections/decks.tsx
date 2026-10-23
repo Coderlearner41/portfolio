@@ -59,12 +59,12 @@ export function DecksSection({ decks }: { decks: Deck[] }) {
                     sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 360px"
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
                   />
-                  <span className="absolute bottom-2 right-2 inline-flex items-center gap-1 rounded-full bg-black/60 px-2 py-0.5 font-mono text-[10px] text-white backdrop-blur-md">
+                  <span className="absolute bottom-2 right-2 inline-flex items-center gap-1 rounded-full bg-black/60 px-2 py-0.5 font-mono text-xs text-white backdrop-blur-md">
                     <Layers className="size-3" /> {d.pages}
                   </span>
                 </div>
                 <div className="p-5">
-                  <p className="font-mono text-[11px] uppercase tracking-widest text-violet-soft">{d.event}</p>
+                  <p className="font-mono text-xs uppercase tracking-widest text-violet-soft">{d.event}</p>
                   <h3 className="mt-2 text-lg font-medium leading-snug text-white">{d.title}</h3>
                   <p className="mt-2 line-clamp-2 text-sm text-dim">{d.summary}</p>
                   <p className="mt-4 text-xs text-faint">
@@ -117,7 +117,7 @@ function DeckViewer({ deck, onClose }: { deck: Deck; onClose: () => void }) {
           >
             <Download className="size-3.5" /> PDF
           </a>
-          <button type="button" onClick={onClose} aria-label="Close" className="grid size-8 place-items-center rounded-full text-dim hover:bg-white/10 hover:text-white">
+          <button type="button" onClick={onClose} aria-label="Close" className="grid size-10 place-items-center rounded-full text-dim hover:bg-white/10 hover:text-white">
             <X className="size-4" />
           </button>
         </div>
@@ -142,7 +142,7 @@ function DeckViewer({ deck, onClose }: { deck: Deck; onClose: () => void }) {
           onClick={() => go(-1)}
           disabled={page === 1}
           aria-label="Previous slide"
-          className="absolute left-2 top-1/2 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-black/50 text-white backdrop-blur-md transition-opacity hover:bg-black/70 disabled:opacity-0"
+          className="absolute left-2 top-1/2 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-black/50 text-white backdrop-blur-md transition-opacity hover:bg-black/70 disabled:opacity-0"
         >
           <ChevronLeft className="size-5" />
         </button>
@@ -151,7 +151,7 @@ function DeckViewer({ deck, onClose }: { deck: Deck; onClose: () => void }) {
           onClick={() => go(1)}
           disabled={page === deck.pages}
           aria-label="Next slide"
-          className="absolute right-2 top-1/2 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-black/50 text-white backdrop-blur-md transition-opacity hover:bg-black/70 disabled:opacity-0"
+          className="absolute right-2 top-1/2 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-black/50 text-white backdrop-blur-md transition-opacity hover:bg-black/70 disabled:opacity-0"
         >
           <ChevronRight className="size-5" />
         </button>

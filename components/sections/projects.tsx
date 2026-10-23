@@ -59,7 +59,7 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
           ))}
         </div>
         <div className="flex flex-wrap items-center gap-1.5" aria-label="Filter by skill">
-          <span className="mr-1 font-mono text-[11px] uppercase tracking-widest text-faint">Skill</span>
+          <span className="mr-1 font-mono text-xs uppercase tracking-widest text-faint">Skill</span>
           {topSkills.map((s) => (
             <button
               key={s}
@@ -110,7 +110,7 @@ function ProjectCard({ project, large }: { project: Project; large: boolean }) {
       className="group flex h-full flex-col p-5 transition-transform duration-300 hover:-translate-y-1 sm:p-6"
     >
       <div className="flex items-start justify-between gap-3">
-        <span className="font-mono text-[11px] uppercase tracking-widest text-faint">
+        <span className="font-mono text-xs uppercase tracking-widest text-faint">
           {project.category} · {project.date}
         </span>
         <ArrowUpRight className="size-5 shrink-0 text-faint transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white" />
