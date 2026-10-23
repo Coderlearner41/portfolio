@@ -10,7 +10,7 @@ import type { Site } from "@/lib/types"
 import { cn } from "@/lib/utils"
 
 // Shown at double width on large screens; with dense packing this keeps the grid free of gaps.
-const WIDE = new Set(["building-analyser"])
+const WIDE = new Set(["building-analyser", "frontend-battle"])
 
 export function SitesSection({ sites }: { sites: Site[] }) {
   return (

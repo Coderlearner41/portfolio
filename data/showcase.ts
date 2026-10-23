@@ -107,16 +107,6 @@ export const sitesData: Site[] = [
     order: 3,
   },
   {
-    slug: "cricket-dashboard",
-    name: "Cricket Analytics Dashboard",
-    url: "https://cricket-dashboard-six.vercel.app",
-    repo: "https://github.com/Coderlearner41/Cricket_dashboard",
-    description: "Player trends, comparisons and career progression, with an AI chat about the selected player.",
-    stack: ["Next.js", "Charts", "LLM"],
-    host: "Vercel",
-    order: 4,
-  },
-  {
     slug: "insureace",
     name: "InsureAce",
     url: "https://buildathon-113k.vercel.app",
@@ -124,7 +114,7 @@ export const sitesData: Site[] = [
     description: "Insurance advisor dashboard built at a buildathon, with Gemini-generated insights. Sign up to explore.",
     stack: ["Next.js 15", "Gemini", "MongoDB"],
     host: "Vercel",
-    order: 5,
+    order: 4,
   },
   {
     slug: "frontend-battle",
@@ -134,7 +124,7 @@ export const sitesData: Site[] = [
     description: "Animated SaaS landing page with a custom preloader, built for a frontend competition.",
     stack: ["Next.js", "Animation"],
     host: "Vercel",
-    order: 6,
+    order: 5,
   },
   {
     slug: "code-melt",
@@ -144,7 +134,7 @@ export const sitesData: Site[] = [
     description: "Online code runner for Java, C++, C, C#, Go, Node and Python.",
     stack: ["Next.js", "Code execution API"],
     host: "Vercel",
-    order: 7,
+    order: 6,
   },
   {
     slug: "kautilya",
@@ -154,7 +144,7 @@ export const sitesData: Site[] = [
     description: "Animated invitation site with a live countdown, built as a frontend task.",
     stack: ["Next.js", "CSS"],
     host: "Vercel",
-    order: 8,
+    order: 7,
   },
 ]
 

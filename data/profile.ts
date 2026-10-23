@@ -28,7 +28,7 @@ export const profileData: Profile = {
     { value: 6, prefix: "Top ", label: "AMEX Codestreet 2026", detail: "out of 11,852 teams" },
     { value: 2, label: "Inter IIT podiums", detail: "Gold (Civil) · Bronze (Tech)" },
     { value: 99.55, decimals: 2, label: "JEE Main percentile", detail: "2023" },
-    { value: 8, label: "Live web apps", detail: "on Vercel and Render" },
+    { value: 7, label: "Live web apps", detail: "on Vercel and Render" },
   ],
 }
 
