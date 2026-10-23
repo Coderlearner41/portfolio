@@ -21,6 +21,8 @@ All content lives in `data/*.ts` and is typed by `lib/types.ts`.
 - Without it, or if the database is unreachable or empty, they fall back to the bundled data.
 
 `npm run db:seed` rebuilds the database from `data/`, so `data/` stays the single source of truth.
+On Vercel, each build reseeds only when `data/` has changed (tracked by a content hash), so edits made
+through the API survive redeploys that don't touch `data/`.
 
 Deck slides are pre-rendered images in `public/decks/<slug>/NN.webp`, with `cover.webp` and a downloadable PDF.
 Site previews are in `public/sites/<slug>.webp`.

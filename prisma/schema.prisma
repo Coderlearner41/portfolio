@@ -125,3 +125,9 @@ model Publication {
 
   search Search @relation(fields: [id], references: [id], onDelete: Cascade)
 }
+
+// Bookkeeping, e.g. the hash of /data the database was last seeded from.
+model Meta {
+  key   String @id
+  value String
+}
