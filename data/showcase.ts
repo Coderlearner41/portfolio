@@ -97,15 +97,6 @@ export const sitesData: Site[] = [
     order: 2,
   },
   {
-    slug: "ormsheet",
-    name: "ORMSheet",
-    url: "https://orm-neon.vercel.app",
-    description: "Outreach management platform with role-based access for admins, core and coordinators.",
-    stack: ["Next.js", "Auth", "RBAC"],
-    host: "Vercel",
-    order: 3,
-  },
-  {
     slug: "slc",
     name: "SLC Website Prototype",
     url: "https://slc-xi.vercel.app",
@@ -113,7 +104,7 @@ export const sitesData: Site[] = [
     description: "Students' Legislative Council site: sessions, budgets, voting and a manifesto tracker.",
     stack: ["Next.js 16", "React 19"],
     host: "Vercel",
-    order: 4,
+    order: 3,
   },
   {
     slug: "cricket-dashboard",
@@ -123,27 +114,17 @@ export const sitesData: Site[] = [
     description: "Player trends, comparisons and career progression, with an AI chat about the selected player.",
     stack: ["Next.js", "Charts", "LLM"],
     host: "Vercel",
-    order: 5,
-  },
-  {
-    slug: "ai-video-generator",
-    name: "AI Commentary Video Generator",
-    url: "https://ai-video-generator-henna-eight.vercel.app",
-    repo: "https://github.com/Coderlearner41/ai-video-generator",
-    description: "Generates cricket commentary videos from match details using AI avatars and voices.",
-    stack: ["Next.js", "HeyGen API"],
-    host: "Vercel",
-    order: 6,
+    order: 4,
   },
   {
     slug: "insureace",
     name: "InsureAce",
     url: "https://buildathon-113k.vercel.app",
     repo: "https://github.com/Coderlearner41/Buildathon",
-    description: "Insurance advisor dashboard built at a buildathon, with Gemini-generated insights.",
+    description: "Insurance advisor dashboard built at a buildathon, with Gemini-generated insights. Sign up to explore.",
     stack: ["Next.js 15", "Gemini", "MongoDB"],
     host: "Vercel",
-    order: 7,
+    order: 5,
   },
   {
     slug: "frontend-battle",
@@ -153,7 +134,7 @@ export const sitesData: Site[] = [
     description: "Animated SaaS landing page with a custom preloader, built for a frontend competition.",
     stack: ["Next.js", "Animation"],
     host: "Vercel",
-    order: 8,
+    order: 6,
   },
   {
     slug: "code-melt",
@@ -163,7 +144,7 @@ export const sitesData: Site[] = [
     description: "Online code runner for Java, C++, C, C#, Go, Node and Python.",
     stack: ["Next.js", "Code execution API"],
     host: "Vercel",
-    order: 9,
+    order: 7,
   },
   {
     slug: "kautilya",
@@ -173,7 +154,7 @@ export const sitesData: Site[] = [
     description: "Animated invitation site with a live countdown, built as a frontend task.",
     stack: ["Next.js", "CSS"],
     host: "Vercel",
-    order: 10,
+    order: 8,
   },
 ]
 
