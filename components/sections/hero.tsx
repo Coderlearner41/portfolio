@@ -1,4 +1,4 @@
-import { ArrowDown, FileDown, GraduationCap, MapPin } from "lucide-react"
+import { ArrowDown, GraduationCap, Mail, MapPin } from "lucide-react"
 import Image from "next/image"
 import { Counter } from "@/components/counter"
 import { GlassCard } from "@/components/glass-card"
@@ -43,8 +43,8 @@ export function Hero({ profile }: { profile: Profile }) {
                 </a>
               </Magnetic>
               <Magnetic>
-                <a href={profile.resume} target="_blank" rel="noopener" className="btn btn-ghost">
-                  <FileDown className="size-4" /> Resume
+                <a href="#contact" className="btn btn-ghost">
+                  <Mail className="size-4" /> Get in touch
                 </a>
               </Magnetic>
             </div>

@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowUpRight, Check, Copy, FileDown, Mail, Phone } from "lucide-react"
+import { ArrowUpRight, Check, Copy, Mail, Phone } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 import { toast } from "sonner"
@@ -51,9 +51,6 @@ export function ContactSection({ profile }: { profile: Profile }) {
             </a>
             <a href={`mailto:${profile.instituteEmail}`} className="link-underline inline-flex items-center gap-1.5 hover:text-ink">
               <Mail className="size-4" /> {profile.instituteEmail}
-            </a>
-            <a href={profile.resume} target="_blank" rel="noopener" className="link-underline inline-flex items-center gap-1.5 hover:text-ink">
-              <FileDown className="size-4" /> Resume (PDF)
             </a>
           </div>
 

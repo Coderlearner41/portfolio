@@ -1,6 +1,6 @@
 import { Mail } from "lucide-react"
 import { FaGithub, FaLinkedin } from "react-icons/fa6"
-import { SiCodeforces, SiKaggle } from "react-icons/si"
+import { SiCodeforces } from "react-icons/si"
 import type { Profile } from "@/lib/types"
 import { cn } from "@/lib/utils"
 
@@ -9,7 +9,6 @@ export function SocialLinks({ profile, className }: { profile: Profile; classNam
     { href: profile.socials.github, label: "GitHub", icon: FaGithub },
     { href: profile.socials.linkedin, label: "LinkedIn", icon: FaLinkedin },
     { href: profile.socials.codeforces, label: "Codeforces", icon: SiCodeforces },
-    { href: profile.socials.kaggle, label: "Kaggle", icon: SiKaggle },
     { href: `mailto:${profile.email}`, label: "Email", icon: Mail },
   ]
   return (

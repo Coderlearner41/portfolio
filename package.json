@@ -1,5 +1,5 @@
 {
-  "name": "dhawal-khatri-portfolio",
+  "name": "portfolio",
   "version": "2.0.0",
   "private": true,
   "scripts": {
@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit",
     "db:migrate": "prisma migrate deploy",
     "db:seed": "prisma db seed",
+    "vercel-build": "prisma generate && prisma migrate deploy && tsx prisma/seed.ts --if-empty && next build",
     "postinstall": "prisma generate"
   },
   "prisma": {

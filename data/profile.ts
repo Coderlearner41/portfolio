@@ -8,7 +8,6 @@ export const profileData: Profile = {
   bio: "Civil Engineering undergrad at IIT Madras who ships software. I've built a conversational agent that designs and seismically analyses RC buildings (my B.Tech project), co-authored an offline earthquake-hazard app now under review at an Elsevier journal, and shipped production React Native and FastAPI systems. Outside code, I head the Finance Club and sit on the Students' Legislative Council's Financial Accountability Committee.",
   location: "Chennai, India",
   image: "/profile.jpg",
-  resume: "/Dhawal_Khatri_Resume.pdf",
   email: "khatridhawal97@gmail.com",
   instituteEmail: "ce23b063@smail.iitm.ac.in",
   phone: "+91 89494 62906",
@@ -24,7 +23,6 @@ export const profileData: Profile = {
     github: "https://github.com/Coderlearner41",
     linkedin: "https://www.linkedin.com/in/dhawal-khatri-3605bb284/",
     codeforces: "https://codeforces.com/profile/codelearner41",
-    kaggle: "https://www.kaggle.com/dhawal22092004",
   },
   stats: [
     { value: 6, prefix: "Top ", label: "AMEX Codestreet 2026", detail: "out of 11,852 teams" },

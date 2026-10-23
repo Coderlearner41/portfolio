@@ -16,8 +16,8 @@ export default async function PlaygroundPage() {
         API <span className="text-gradient">playground</span>
       </h1>
       <p className="mt-4 max-w-2xl text-dim">
-        Everything on this site is served by a small REST API over Postgres, the original Predusk “Me-API” project, now
-        living inside this Next.js app. Pick an endpoint and send a request.
+        Everything on this site is served by a small REST API over Postgres (my “Me-API”), which lives
+        inside this Next.js app. Pick an endpoint and send a request.
       </p>
       <p className="mt-3 font-mono text-xs text-faint">
         data source: <span className={source === "database" ? "text-emerald-300" : "text-amber-200"}>{source}</span>

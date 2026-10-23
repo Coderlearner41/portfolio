@@ -66,7 +66,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <ScrollProgress />
         <CommandMenuProvider
           index={buildIndex(content)}
-          profile={{ email: profile.email, resume: profile.resume, socials: profile.socials }}
+          profile={{ email: profile.email, socials: profile.socials }}
         >
           <SiteNav initials={profile.initials} />
           <main id="main">{children}</main>

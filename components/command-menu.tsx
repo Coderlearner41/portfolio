@@ -5,7 +5,6 @@ import {
   BookOpen,
   Briefcase,
   Copy,
-  FileDown,
   FolderGit2,
   Globe,
   Home,
@@ -59,7 +58,7 @@ export function CommandMenuProvider({
   children,
 }: {
   index: SearchResult[]
-  profile: Pick<Profile, "email" | "resume" | "socials">
+  profile: Pick<Profile, "email" | "socials">
   children: ReactNode
 }) {
   const [isOpen, setOpen] = useState(false)
@@ -79,7 +78,7 @@ export function CommandMenuProvider({
   const go = useCallback(
     (href: string) => {
       setOpen(false)
-      if (/^https?:/.test(href) || href.endsWith(".pdf")) {
+      if (/^https?:/.test(href)) {
         window.open(href, "_blank", "noopener,noreferrer")
       } else if (href.startsWith("/#") && window.location.pathname === "/") {
         // Setting the hash (rather than router.push) fires hashchange, which opens deck deep links.
@@ -120,9 +119,6 @@ export function CommandMenuProvider({
               }}
             >
               <Copy /> Copy email
-            </CommandItem>
-            <CommandItem onSelect={() => go(profile.resume)}>
-              <FileDown /> Download resume
             </CommandItem>
             <CommandItem onSelect={() => go(profile.socials.github)}>
               <FaGithub /> GitHub

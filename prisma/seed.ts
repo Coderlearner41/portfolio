@@ -5,7 +5,13 @@ import { delegate, resources } from "../lib/resources"
 const prisma = new PrismaClient()
 
 // Rebuilds the database from /data so the bundled content stays the single source of truth.
+// With --if-empty (used by the Vercel build) it only seeds a fresh database, so edits made
+// through the API survive redeploys.
 async function main() {
+  if (process.argv.includes("--if-empty") && (await prisma.search.count()) > 0) {
+    console.log("database already seeded, skipping")
+    return
+  }
   await prisma.$executeRawUnsafe(`TRUNCATE TABLE "Search" RESTART IDENTITY CASCADE`)
 
   for (const [name, resource] of Object.entries(resources)) {

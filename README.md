@@ -1,6 +1,6 @@
 # Dhawal Khatri: Portfolio + Me-API
 
-Personal portfolio for Dhawal Khatri (IIT Madras), built on top of the original Predusk "Me-API Playground".
+Personal portfolio for Dhawal Khatri (IIT Madras), with its own "Me-API" for the content.
 The site and its JSON API live in one Next.js app deployed on Vercel.
 
 - **Portfolio**: experience, projects (with case-study pages), live websites, decks with an in-page viewer,

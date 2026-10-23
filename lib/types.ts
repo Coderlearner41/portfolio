@@ -13,7 +13,6 @@ export type Profile = {
   bio: string
   location: string
   image: string
-  resume: string
   email: string
   instituteEmail: string
   phone: string
@@ -29,7 +28,6 @@ export type Profile = {
     github: string
     linkedin: string
     codeforces: string
-    kaggle: string
   }
   stats: Stat[]
 }
